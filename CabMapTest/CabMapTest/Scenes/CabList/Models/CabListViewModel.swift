@@ -1,0 +1,3 @@
+struct CabListViewModel: Equatable {
+
+}
