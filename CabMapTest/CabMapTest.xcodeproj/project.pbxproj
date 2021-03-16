@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A24BEA42600327E0019D5C3 /* CabListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A24BEA22600327E0019D5C3 /* CabListRouter.swift */; };
+		3A24BEA52600327E0019D5C3 /* CabListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A24BEA32600327E0019D5C3 /* CabListTableViewCell.swift */; };
+		3A24BEB32600341E0019D5C3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A24BEB22600341E0019D5C3 /* MapViewController.swift */; };
 		ECC4B6E525FDCFD200548628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B6E425FDCFD200548628 /* AppDelegate.swift */; };
 		ECC4B6E725FDCFD200548628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B6E625FDCFD200548628 /* SceneDelegate.swift */; };
 		ECC4B6E925FDCFD200548628 /* CabListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B6E825FDCFD200548628 /* CabListViewController.swift */; };
@@ -50,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A24BEA22600327E0019D5C3 /* CabListRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabListRouter.swift; sourceTree = "<group>"; };
+		3A24BEA32600327E0019D5C3 /* CabListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabListTableViewCell.swift; sourceTree = "<group>"; };
+		3A24BEB22600341E0019D5C3 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		ECC4B6E125FDCFD200548628 /* CabMapTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CabMapTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC4B6E425FDCFD200548628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC4B6E625FDCFD200548628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A24BEB1260034100019D5C3 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3A24BEB22600341E0019D5C3 /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		ECC4B6D825FDCFD200548628 = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +250,7 @@
 		ECC4B76625FE278A00548628 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3A24BEB1260034100019D5C3 /* Map */,
 				ECC4B76725FE27BA00548628 /* CabList */,
 			);
 			path = Scenes;
@@ -248,6 +263,8 @@
 				ECC4B6E825FDCFD200548628 /* CabListViewController.swift */,
 				ECC4B76B25FE281A00548628 /* CabListPresenter.swift */,
 				ECC4B77925FE2F9800548628 /* CabListConfigurator.swift */,
+				3A24BEA22600327E0019D5C3 /* CabListRouter.swift */,
+				3A24BEA32600327E0019D5C3 /* CabListTableViewCell.swift */,
 				ECC4B6EA25FDCFD200548628 /* Main.storyboard */,
 			);
 			path = CabList;
@@ -396,6 +413,7 @@
 				ECC4B72825FDE72000548628 /* CabSource.swift in Sources */,
 				ECC4B6E525FDCFD200548628 /* AppDelegate.swift in Sources */,
 				ECC4B72F25FDE81C00548628 /* CabModel.swift in Sources */,
+				3A24BEA42600327E0019D5C3 /* CabListRouter.swift in Sources */,
 				ECC4B75525FDF8E000548628 /* CabListParameters.swift in Sources */,
 				ECC4B78225FE3C3F00548628 /* CabState.swift in Sources */,
 				ECC4B76C25FE281A00548628 /* CabListPresenter.swift in Sources */,
@@ -403,11 +421,13 @@
 				ECC4B72225FDDEA300548628 /* APIResponse.swift in Sources */,
 				ECC4B77A25FE2F9800548628 /* CabListConfigurator.swift in Sources */,
 				ECC4B74D25FDF10100548628 /* CabAPIRequest.swift in Sources */,
+				3A24BEB32600341E0019D5C3 /* MapViewController.swift in Sources */,
 				ECC4B74725FDECD300548628 /* Entity.swift in Sources */,
 				ECC4B73725FDE8BB00548628 /* Result.swift in Sources */,
 				ECC4B78725FE3DBA00548628 /* CabType.swift in Sources */,
 				ECC4B75F25FE253D00548628 /* GetCabListUsecase.swift in Sources */,
 				ECC4B6E725FDCFD200548628 /* SceneDelegate.swift in Sources */,
+				3A24BEA52600327E0019D5C3 /* CabListTableViewCell.swift in Sources */,
 				ECC4B73F25FDEB3200548628 /* CabEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

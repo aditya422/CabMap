@@ -4,25 +4,57 @@ enum CabListViewState {
     case clear
     case loading
     case showError(error: Error)
-    case updateView(viewModel: CabListViewModel)
+    case updateView(viewModel: CabListViewModel? = nil)
 }
 
 protocol CabListPresenterCovenant {
     var view: CabListView? { get set }
+    var router: CabListRouterCovenant? { get set }
     func viewDidLoad()
+    func viewWillAppear()
+    func numberOfRows(in section: Int) -> Int
+    func viewModelFor(indexPath: IndexPath) -> CabListTableViewCell.ViewModel
+    func navigateToMapView()
 }
 
 class CabListPresenter: CabListPresenterCovenant {
     var view: CabListView?
+    var router: CabListRouterCovenant?
     var getCabListUsecase: GetCabListUsecaseCovenant
+    var cabList = [CabModel]()
+    let constants = Constants()
 
-    init(view: CabListView, getCabListUsecase: GetCabListUsecaseCovenant) {
+    var viewState: CabListViewState = .clear {
+        didSet {
+            view?.viewStateChanged(state: viewState)
+        }
+    }
+
+    init(view: CabListView, getCabListUsecase: GetCabListUsecaseCovenant,
+         router: CabListRouterCovenant) {
         self.view = view
         self.getCabListUsecase = getCabListUsecase
+        self.router = router
     }
 
     func viewDidLoad() {
+        viewState = .updateView(viewModel: getViewModel())
+    }
+
+    func viewWillAppear() {
         loadCabList()
+    }
+
+    func numberOfRows(in section: Int) -> Int {
+        cabList.count
+    }
+
+    func viewModelFor(indexPath: IndexPath) -> CabListTableViewCell.ViewModel {
+        cabList[indexPath.row].mapToCellModel()
+    }
+
+    func navigateToMapView() {
+        router?.navigateToMapView()
     }
 }
 
@@ -35,13 +67,31 @@ private extension CabListPresenter {
     }
 
     func loadCabList() {
-            getCabListUsecase.getCabList(parameters: getCabListRequestPrameters()) { result in
+            getCabListUsecase.getCabList(parameters: getCabListRequestPrameters()) {[weak self] result in
+                guard let self = self else {
+                    return
+                }
                 switch result {
                 case let .success(cabList):
-                    print("Success = \(cabList)")
+                    // TODO: - Remove following print after testing
+                    print("Success")
+                    self.cabList = cabList
+                    self.viewState = .updateView()
                 case let .failure(error):
-                    print("error = \(error)")
+                    self.viewState = .showError(error: error)
                 }
             }
+    }
+
+    func getViewModel() -> CabListViewModel {
+        CabListViewModel(headerTitle: constants.cabListHeaderTile,
+                         mapButtonTitle: constants.cabListMapButonTitle)
+    }
+}
+
+extension CabListPresenter {
+    struct Constants {
+        let cabListHeaderTile = "Cab List"
+        let cabListMapButonTitle = "Map"
     }
 }

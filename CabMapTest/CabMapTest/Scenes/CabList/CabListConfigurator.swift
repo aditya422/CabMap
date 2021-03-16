@@ -10,8 +10,10 @@ class CabListConfigurator: CabListConfiguratorCovenant {
                                   completionHandlerQueue: OperationQueue.main)
         let cabListSource = CabListSource(apiClient: apiClient)
         let cabListUsecas = GetCabListUsecase(cabListSource: cabListSource)
+        let router = CabListRouter(cabListController: cabListController)
         let presenter = CabListPresenter(view: cabListController,
-                                         getCabListUsecase: cabListUsecas)
+                                         getCabListUsecase: cabListUsecas,
+                                         router: router)
         cabListController.presenter = presenter
         presenter.view = cabListController
     }
