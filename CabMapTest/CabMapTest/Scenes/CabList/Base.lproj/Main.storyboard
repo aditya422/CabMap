@@ -99,6 +99,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mapButton" destination="3Hc-5e-gWD" id="pht-M2-Sy9"/>
                         <outlet property="tableView" destination="b8q-LH-wao" id="goq-uV-EMA"/>
                     </connections>
                 </viewController>

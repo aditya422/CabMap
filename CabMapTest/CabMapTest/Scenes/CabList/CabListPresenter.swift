@@ -4,7 +4,7 @@ enum CabListViewState {
     case clear
     case loading
     case showError(error: Error)
-    case updateView(viewModel: CabListViewModel? = nil)
+    case updateView(viewModel: CabListViewModel)
 }
 
 protocol CabListPresenterCovenant {
@@ -67,20 +67,21 @@ private extension CabListPresenter {
     }
 
     func loadCabList() {
-            getCabListUsecase.getCabList(parameters: getCabListRequestPrameters()) {[weak self] result in
-                guard let self = self else {
-                    return
-                }
-                switch result {
-                case let .success(cabList):
-                    // TODO: - Remove following print after testing
-                    print("Success")
-                    self.cabList = cabList
-                    self.viewState = .updateView()
-                case let .failure(error):
-                    self.viewState = .showError(error: error)
-                }
+        viewState = .loading
+        getCabListUsecase.getCabList(parameters: getCabListRequestPrameters()) {[weak self] result in
+            guard let self = self else {
+                return
             }
+            switch result {
+            case let .success(cabList):
+                // TODO: - Remove following print after testing
+                print("Success")
+                self.cabList = cabList
+                self.viewState = .updateView(viewModel: CabListViewModel())
+            case let .failure(error):
+                self.viewState = .showError(error: error)
+            }
+        }
     }
 
     func getViewModel() -> CabListViewModel {

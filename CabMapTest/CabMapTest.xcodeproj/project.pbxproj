@@ -3,13 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3A24BEA42600327E0019D5C3 /* CabListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A24BEA22600327E0019D5C3 /* CabListRouter.swift */; };
 		3A24BEA52600327E0019D5C3 /* CabListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A24BEA32600327E0019D5C3 /* CabListTableViewCell.swift */; };
 		3A24BEB32600341E0019D5C3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A24BEB22600341E0019D5C3 /* MapViewController.swift */; };
+		6C2D156926011BA000AA7BAB /* MapAnnotationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D156826011BA000AA7BAB /* MapAnnotationModel.swift */; };
+		6CB8B538260109C0002DB4ED /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB8B537260109C0002DB4ED /* MapPresenter.swift */; };
+		6CB8B53D260109D4002DB4ED /* MapConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB8B53C260109D4002DB4ED /* MapConfigurator.swift */; };
+		6CB8B54226010AE7002DB4ED /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB8B54126010AE7002DB4ED /* MapViewModel.swift */; };
+		DBF38C5A5656F04D3F5A2A17 /* Pods_CabMapTest_CabMapTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D9C2FA64586C05DAB25F42 /* Pods_CabMapTest_CabMapTestUITests.framework */; };
 		ECC4B6E525FDCFD200548628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B6E425FDCFD200548628 /* AppDelegate.swift */; };
 		ECC4B6E725FDCFD200548628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B6E625FDCFD200548628 /* SceneDelegate.swift */; };
 		ECC4B6E925FDCFD200548628 /* CabListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B6E825FDCFD200548628 /* CabListViewController.swift */; };
@@ -33,6 +38,8 @@
 		ECC4B77A25FE2F9800548628 /* CabListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B77925FE2F9800548628 /* CabListConfigurator.swift */; };
 		ECC4B78225FE3C3F00548628 /* CabState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B78125FE3C3F00548628 /* CabState.swift */; };
 		ECC4B78725FE3DBA00548628 /* CabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4B78625FE3DBA00548628 /* CabType.swift */; };
+		F7FDAB176443CADDA4D11B95 /* Pods_CabMapTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83AF1C708845DE9358A0406 /* Pods_CabMapTestTests.framework */; };
+		FFC0A2411A24CE9B26CFABFC /* Pods_CabMapTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E4A4AC94E11652D74D800F /* Pods_CabMapTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,9 +60,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		21E4A4AC94E11652D74D800F /* Pods_CabMapTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CabMapTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24025B551EF7071AB0F511D5 /* Pods-CabMapTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CabMapTest.debug.xcconfig"; path = "Target Support Files/Pods-CabMapTest/Pods-CabMapTest.debug.xcconfig"; sourceTree = "<group>"; };
 		3A24BEA22600327E0019D5C3 /* CabListRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabListRouter.swift; sourceTree = "<group>"; };
 		3A24BEA32600327E0019D5C3 /* CabListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CabListTableViewCell.swift; sourceTree = "<group>"; };
 		3A24BEB22600341E0019D5C3 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		5701E0918AFA5529E3779C6F /* Pods-CabMapTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CabMapTestTests.release.xcconfig"; path = "Target Support Files/Pods-CabMapTestTests/Pods-CabMapTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		57D9C2FA64586C05DAB25F42 /* Pods_CabMapTest_CabMapTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CabMapTest_CabMapTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EA4E806459E601A4F94DAAE /* Pods-CabMapTest-CabMapTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CabMapTest-CabMapTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-CabMapTest-CabMapTestUITests/Pods-CabMapTest-CabMapTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6C2D156826011BA000AA7BAB /* MapAnnotationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationModel.swift; sourceTree = "<group>"; };
+		6CB8B537260109C0002DB4ED /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		6CB8B53C260109D4002DB4ED /* MapConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapConfigurator.swift; sourceTree = "<group>"; };
+		6CB8B54126010AE7002DB4ED /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		AEDA6BEEDA21FADD0374B8F8 /* Pods-CabMapTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CabMapTest.release.xcconfig"; path = "Target Support Files/Pods-CabMapTest/Pods-CabMapTest.release.xcconfig"; sourceTree = "<group>"; };
+		B6EC4B1F9C28E8E5D8001AD6 /* Pods-CabMapTest-CabMapTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CabMapTest-CabMapTestUITests.release.xcconfig"; path = "Target Support Files/Pods-CabMapTest-CabMapTestUITests/Pods-CabMapTest-CabMapTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		ECC4B6E125FDCFD200548628 /* CabMapTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CabMapTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC4B6E425FDCFD200548628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC4B6E625FDCFD200548628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +103,8 @@
 		ECC4B77925FE2F9800548628 /* CabListConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabListConfigurator.swift; sourceTree = "<group>"; };
 		ECC4B78125FE3C3F00548628 /* CabState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabState.swift; sourceTree = "<group>"; };
 		ECC4B78625FE3DBA00548628 /* CabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabType.swift; sourceTree = "<group>"; };
+		F83AF1C708845DE9358A0406 /* Pods_CabMapTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CabMapTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F84D8BCF853A1B7AAC25DFDD /* Pods-CabMapTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CabMapTestTests.debug.xcconfig"; path = "Target Support Files/Pods-CabMapTestTests/Pods-CabMapTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC0A2411A24CE9B26CFABFC /* Pods_CabMapTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7FDAB176443CADDA4D11B95 /* Pods_CabMapTestTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBF38C5A5656F04D3F5A2A17 /* Pods_CabMapTest_CabMapTestUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,9 +138,21 @@
 		3A24BEB1260034100019D5C3 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				6CB8B54626010AED002DB4ED /* Models */,
 				3A24BEB22600341E0019D5C3 /* MapViewController.swift */,
+				6CB8B537260109C0002DB4ED /* MapPresenter.swift */,
+				6CB8B53C260109D4002DB4ED /* MapConfigurator.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		6CB8B54626010AED002DB4ED /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6CB8B54126010AE7002DB4ED /* MapViewModel.swift */,
+				6C2D156826011BA000AA7BAB /* MapAnnotationModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		ECC4B6D825FDCFD200548628 = {
@@ -127,6 +162,8 @@
 				ECC4B6FA25FDCFD600548628 /* CabMapTestTests */,
 				ECC4B70525FDCFD600548628 /* CabMapTestUITests */,
 				ECC4B6E225FDCFD200548628 /* Products */,
+				FA65E14E992397847838D05B /* Pods */,
+				F19ADC58E751AA79193FA104 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -278,6 +315,29 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F19ADC58E751AA79193FA104 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21E4A4AC94E11652D74D800F /* Pods_CabMapTest.framework */,
+				57D9C2FA64586C05DAB25F42 /* Pods_CabMapTest_CabMapTestUITests.framework */,
+				F83AF1C708845DE9358A0406 /* Pods_CabMapTestTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA65E14E992397847838D05B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				24025B551EF7071AB0F511D5 /* Pods-CabMapTest.debug.xcconfig */,
+				AEDA6BEEDA21FADD0374B8F8 /* Pods-CabMapTest.release.xcconfig */,
+				5EA4E806459E601A4F94DAAE /* Pods-CabMapTest-CabMapTestUITests.debug.xcconfig */,
+				B6EC4B1F9C28E8E5D8001AD6 /* Pods-CabMapTest-CabMapTestUITests.release.xcconfig */,
+				F84D8BCF853A1B7AAC25DFDD /* Pods-CabMapTestTests.debug.xcconfig */,
+				5701E0918AFA5529E3779C6F /* Pods-CabMapTestTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,9 +345,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECC4B70B25FDCFD600548628 /* Build configuration list for PBXNativeTarget "CabMapTest" */;
 			buildPhases = (
+				CAE1099F9B08B81A1D58DB48 /* [CP] Check Pods Manifest.lock */,
 				ECC4B6DD25FDCFD200548628 /* Sources */,
 				ECC4B6DE25FDCFD200548628 /* Frameworks */,
 				ECC4B6DF25FDCFD200548628 /* Resources */,
+				97A8B584B24272406D423020 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,6 +364,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECC4B70E25FDCFD600548628 /* Build configuration list for PBXNativeTarget "CabMapTestTests" */;
 			buildPhases = (
+				B233B9AB1EAD310DD5CDECE7 /* [CP] Check Pods Manifest.lock */,
 				ECC4B6F325FDCFD600548628 /* Sources */,
 				ECC4B6F425FDCFD600548628 /* Frameworks */,
 				ECC4B6F525FDCFD600548628 /* Resources */,
@@ -320,9 +383,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECC4B71125FDCFD600548628 /* Build configuration list for PBXNativeTarget "CabMapTestUITests" */;
 			buildPhases = (
+				CA371CDC9DB57033106118B5 /* [CP] Check Pods Manifest.lock */,
 				ECC4B6FE25FDCFD600548628 /* Sources */,
 				ECC4B6FF25FDCFD600548628 /* Frameworks */,
 				ECC4B70025FDCFD600548628 /* Resources */,
+				555FC67B9F51EAF5EAA2A698 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -403,6 +468,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		555FC67B9F51EAF5EAA2A698 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CabMapTest-CabMapTestUITests/Pods-CabMapTest-CabMapTestUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CabMapTest-CabMapTestUITests/Pods-CabMapTest-CabMapTestUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CabMapTest-CabMapTestUITests/Pods-CabMapTest-CabMapTestUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97A8B584B24272406D423020 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CabMapTest/Pods-CabMapTest-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CabMapTest/Pods-CabMapTest-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CabMapTest/Pods-CabMapTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B233B9AB1EAD310DD5CDECE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CabMapTestTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA371CDC9DB57033106118B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CabMapTest-CabMapTestUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAE1099F9B08B81A1D58DB48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CabMapTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ECC4B6DD25FDCFD200548628 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -411,6 +579,7 @@
 				ECC4B77225FE2E0900548628 /* CabListViewModel.swift in Sources */,
 				ECC4B6E925FDCFD200548628 /* CabListViewController.swift in Sources */,
 				ECC4B72825FDE72000548628 /* CabSource.swift in Sources */,
+				6CB8B538260109C0002DB4ED /* MapPresenter.swift in Sources */,
 				ECC4B6E525FDCFD200548628 /* AppDelegate.swift in Sources */,
 				ECC4B72F25FDE81C00548628 /* CabModel.swift in Sources */,
 				3A24BEA42600327E0019D5C3 /* CabListRouter.swift in Sources */,
@@ -423,12 +592,15 @@
 				ECC4B74D25FDF10100548628 /* CabAPIRequest.swift in Sources */,
 				3A24BEB32600341E0019D5C3 /* MapViewController.swift in Sources */,
 				ECC4B74725FDECD300548628 /* Entity.swift in Sources */,
+				6C2D156926011BA000AA7BAB /* MapAnnotationModel.swift in Sources */,
+				6CB8B53D260109D4002DB4ED /* MapConfigurator.swift in Sources */,
 				ECC4B73725FDE8BB00548628 /* Result.swift in Sources */,
 				ECC4B78725FE3DBA00548628 /* CabType.swift in Sources */,
 				ECC4B75F25FE253D00548628 /* GetCabListUsecase.swift in Sources */,
 				ECC4B6E725FDCFD200548628 /* SceneDelegate.swift in Sources */,
 				3A24BEA52600327E0019D5C3 /* CabListTableViewCell.swift in Sources */,
 				ECC4B73F25FDEB3200548628 /* CabEntity.swift in Sources */,
+				6CB8B54226010AE7002DB4ED /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +773,7 @@
 		};
 		ECC4B70C25FDCFD600548628 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24025B551EF7071AB0F511D5 /* Pods-CabMapTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -619,6 +792,7 @@
 		};
 		ECC4B70D25FDCFD600548628 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEDA6BEEDA21FADD0374B8F8 /* Pods-CabMapTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -637,6 +811,7 @@
 		};
 		ECC4B70F25FDCFD600548628 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F84D8BCF853A1B7AAC25DFDD /* Pods-CabMapTestTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -658,6 +833,7 @@
 		};
 		ECC4B71025FDCFD600548628 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5701E0918AFA5529E3779C6F /* Pods-CabMapTestTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -679,6 +855,7 @@
 		};
 		ECC4B71225FDCFD600548628 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EA4E806459E601A4F94DAAE /* Pods-CabMapTest-CabMapTestUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -698,6 +875,7 @@
 		};
 		ECC4B71325FDCFD600548628 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6EC4B1F9C28E8E5D8001AD6 /* Pods-CabMapTest-CabMapTestUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

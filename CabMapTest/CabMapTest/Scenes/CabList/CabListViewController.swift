@@ -9,12 +9,14 @@ protocol CabListView {
 class CabListViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var mapButton: UIBarButtonItem!
+    
     // MARK: - Variables
     let configurator = CabListConfigurator()
     // NOTE: - Presenter will never be nil and value for following var will definately be set from configurator.
     var presenter: CabListPresenterCovenant!
     let constants = Constants()
+    let loader = UIActivityIndicatorView(style: .large)
 
     // MARK: - Functions
     override func viewDidLoad() {
@@ -53,8 +55,10 @@ extension CabListViewController: UITableViewDataSource {
 extension CabListViewController: CabListView {
     func viewStateChanged(state: CabListViewState) {
         switch state {
-        case .updateView:
-            tableView.reloadData()
+        case let .updateView(viewModel):
+            updateView(viewModel: viewModel)
+        case .loading:
+            showLoader()
         default:
             break
         }
@@ -64,5 +68,27 @@ extension CabListViewController: CabListView {
 extension CabListViewController {
     struct Constants {
         let cellReuseIdentifier = "Cell"
+    }
+}
+
+private extension CabListViewController {
+    func showLoader() {
+        loader.center = view.center
+        view.addSubview(loader)
+        loader.startAnimating()
+    }
+
+    func hideLoader() {
+        loader.stopAnimating()
+    }
+
+    func updateView(viewModel: CabListViewModel) {
+        if let headerTitle = viewModel.headerTitle,
+           let mapButtonTitle = viewModel.mapButtonTitle {
+            self.title = headerTitle
+            mapButton.title = mapButtonTitle
+        }
+        hideLoader()
+        tableView.reloadData()
     }
 }

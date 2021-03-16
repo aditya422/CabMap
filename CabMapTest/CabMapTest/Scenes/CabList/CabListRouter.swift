@@ -15,7 +15,7 @@ class CabListRouter: CabListRouterCovenant {
     func navigateToMapView() {
         let storyboard = UIStoryboard(name: constants.storyboardName, bundle: nil)
         let mapViewController = storyboard.instantiateViewController(identifier: constants.mapViewControllerIdentifier)
-        cabListController?.present(mapViewController, animated: true, completion: nil)
+        cabListController?.navigationController?.pushViewController(mapViewController, animated: true)
     }
 }
 
