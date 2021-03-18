@@ -9,6 +9,7 @@ enum MapViewState {
 }
 
 protocol MapPresenterCovenant {
+    func viewDidLoad()
     func getCabsInTheRegion(firstPoint: CLLocationCoordinate2D, secondPoint: CLLocationCoordinate2D)
 }
 
@@ -16,6 +17,7 @@ class MapPresenter: MapPresenterCovenant {
     var view: MapView?
     var getCabListUsecase: GetCabListUsecaseCovenant
     var cabList = [CabModel]()
+    let constants = Constants()
     
     var viewState: MapViewState = .clear {
         didSet {
@@ -26,6 +28,12 @@ class MapPresenter: MapPresenterCovenant {
     init(view: MapView?, getCabListUsecase: GetCabListUsecaseCovenant) {
         self.view = view
         self.getCabListUsecase = getCabListUsecase
+    }
+    
+    func viewDidLoad() {
+        // NOTE: - In this case the cab list is always empty
+        viewState = .updateView(viewModel: MapViewModel(headerTitle: constants.headerTitle,
+                                                        annotations: cabList.map { $0.mapToAnnotationModel() }))
     }
     
     func getCabsInTheRegion(firstPoint: CLLocationCoordinate2D, secondPoint: CLLocationCoordinate2D) {
@@ -43,8 +51,6 @@ private extension MapPresenter {
             }
             switch result {
             case let .success(cabList):
-                // TODO: - Remove following print after testing
-                print("Success")
                 self.cabList = cabList
                 self.viewState = .updateView(viewModel: MapViewModel(annotations: self.cabList.map { $0.mapToAnnotationModel() }))
             case let .failure(error):
@@ -59,5 +65,11 @@ private extension MapPresenter {
                                  firstPointLongitude: firstPoint.longitude,
                                  secondPointLatttitude: secondPoint.latitude,
                                  secondPointLongitude: secondPoint.longitude)
+    }
+}
+
+extension MapPresenter {
+    struct Constants {
+        let headerTitle = "Map"
     }
 }

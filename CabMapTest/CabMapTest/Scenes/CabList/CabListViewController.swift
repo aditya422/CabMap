@@ -59,15 +59,11 @@ extension CabListViewController: CabListView {
             updateView(viewModel: viewModel)
         case .loading:
             showLoader()
-        default:
+        case .showError:
+            showErrorAlert()
+        case .clear:
             break
         }
-    }
-}
-
-extension CabListViewController {
-    struct Constants {
-        let cellReuseIdentifier = "Cell"
     }
 }
 
@@ -90,5 +86,39 @@ private extension CabListViewController {
         }
         hideLoader()
         tableView.reloadData()
+    }
+    
+    func showErrorAlert() {
+        let alertController = UIAlertController(title: constants.errorAlertTitle,
+                                                message: constants.errorAlertDescription,
+                                                preferredStyle: .alert)
+        
+        for action in getAlertActions() {
+            alertController.addAction(action)
+        }
+        self.present(alertController, animated: true)
+    }
+    
+    func getAlertActions() -> [UIAlertAction] {
+        let yesAlertAction = UIAlertAction(title: constants.errorAlertYesActionTitle,
+                                           style: .default) {[weak self] action in
+            if let self = self {
+                self.presenter.reloadList()
+            }
+        }
+        
+        let NoAlertAction = UIAlertAction(title: constants.errorAlertNoActionTitle,
+                                          style: .cancel)
+        return [yesAlertAction, NoAlertAction]
+    }
+}
+
+extension CabListViewController {
+    struct Constants {
+        let cellReuseIdentifier = "Cell"
+        let errorAlertTitle = "Something went wrong"
+        let errorAlertDescription = "Do you want to try again?"
+        let errorAlertNoActionTitle = "No"
+        let errorAlertYesActionTitle = "Yes"
     }
 }

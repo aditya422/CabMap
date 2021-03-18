@@ -56,15 +56,13 @@ extension CabModel {
         switch type {
         case .taxi:
             return UIImage(named: "icon_taxi") ?? UIImage()
-        case .moped:
-            return UIImage(named: "icon_moped") ?? UIImage()
         }
     }
 
     private func getColorForState() -> UIColor {
         switch state {
         case .active:
-            return UIColor(red: 161/255.0, green: 250/255.0, blue: 78/255.0, alpha: 1.0)
+            return UIColor(red: 34/255.0, green: 139/255.0, blue: 34/255.0, alpha: 1.0)
         case .inactive:
             return UIColor(red: 226/255.0, green: 62/255.0, blue: 42/255.0, alpha: 1.0)
 

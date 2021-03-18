@@ -15,6 +15,7 @@ protocol CabListPresenterCovenant {
     func numberOfRows(in section: Int) -> Int
     func viewModelFor(indexPath: IndexPath) -> CabListTableViewCell.ViewModel
     func navigateToMapView()
+    func reloadList()
 }
 
 class CabListPresenter: CabListPresenterCovenant {
@@ -56,6 +57,10 @@ class CabListPresenter: CabListPresenterCovenant {
     func navigateToMapView() {
         router?.navigateToMapView()
     }
+    
+    func reloadList() {
+        loadCabList()
+    }
 }
 
 private extension CabListPresenter {
@@ -74,8 +79,6 @@ private extension CabListPresenter {
             }
             switch result {
             case let .success(cabList):
-                // TODO: - Remove following print after testing
-                print("Success")
                 self.cabList = cabList
                 self.viewState = .updateView(viewModel: CabListViewModel())
             case let .failure(error):

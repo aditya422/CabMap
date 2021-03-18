@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "car-top-view-2.png",
+      "filename" : "car-top-view-icon-11555.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "car-top-view-1.png",
+      "filename" : "car-top-view-icon-11554.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "car-top-view.png",
+      "filename" : "car-top-view-icon-11553.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

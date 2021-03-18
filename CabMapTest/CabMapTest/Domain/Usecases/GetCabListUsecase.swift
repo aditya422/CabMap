@@ -7,9 +7,9 @@ protocol GetCabListUsecaseCovenant {
 }
 
 class GetCabListUsecase: GetCabListUsecaseCovenant {
-    let cabListSource: CabListSource
+    let cabListSource: CabListSourceCovenant
 
-    init(cabListSource: CabListSource) {
+    init(cabListSource: CabListSourceCovenant) {
         self.cabListSource = cabListSource
     }
 

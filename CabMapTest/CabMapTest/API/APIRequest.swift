@@ -32,6 +32,11 @@ class APIClient: APIClientCovenant {
     init(urlSessionConfiguration: URLSessionConfiguration, completionHandlerQueue: OperationQueue) {
         urlSession = URLSession(configuration: urlSessionConfiguration, delegate: nil, delegateQueue: completionHandlerQueue)
     }
+    
+    // NOTE: - Following constructor is used only for unit tests
+    init(urlSession: URLSessionCovenant) {
+        self.urlSession = urlSession
+    }
 
     // MARK: - ApiClient
 

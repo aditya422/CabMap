@@ -2,11 +2,11 @@ import Foundation
 
 typealias GetCabListCompletion = (_ result: Result<[CabModel]>) -> Void
 
-protocol CabSourceCovenant {
+protocol CabListSourceCovenant {
     func cabList(parameters: CabListRequestParameters, completion: @escaping GetCabListCompletion)
 }
 
-class CabListSource: CabSourceCovenant {
+class CabListSource: CabListSourceCovenant {
     let apiClient: APIClient
 
     init(apiClient: APIClient) {
@@ -21,7 +21,6 @@ class CabListSource: CabSourceCovenant {
         apiClient.execute(request: getCabListRequest) { (result: Result<APIResponse<CabListResponseEntity>>) in
             switch result {
             case let .success(response):
-//                let listResponse = response.ke
                 let cabs = response.entity.poiList.map { return $0.convertToDomainModel() }
                 completion(.success(cabs))
             case let .failure(error):
