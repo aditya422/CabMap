@@ -4,13 +4,13 @@ import UIKit
 
 class CabListTableViewCell: UITableViewCell {
     // MARK: - Outlets
-    @IBOutlet weak var vehicleImageView: UIImageView!
-    @IBOutlet weak var vehicleTypeLabel: UILabel!
-    @IBOutlet weak var vehicleStatusView: UIView!
-    @IBOutlet weak var vehicleStatusLabel: UILabel!
+    @IBOutlet private weak var vehicleImageView: UIImageView!
+    @IBOutlet private weak var vehicleTypeLabel: UILabel!
+    @IBOutlet private weak var vehicleStatusView: UIView!
+    @IBOutlet private weak var vehicleStatusLabel: UILabel!
 
     // MARK: - Variables
-    let constants = Constants()
+    private let constants = Constants()
 
     // MARK: - Functions
     override func awakeFromNib() {
@@ -38,14 +38,15 @@ extension CabListTableViewCell {
     }
 }
 
-extension CabListTableViewCell {
+// MARK: - Constants
+private extension CabListTableViewCell {
     struct Constants {
         let stateViewCornerRadius: CGFloat = 5.0
     }
 }
 
 extension CabModel {
-    func mapToCellModel() -> CabListTableViewCell.ViewModel {
+    func convertToCellModel() -> CabListTableViewCell.ViewModel {
         CabListTableViewCell.ViewModel(vehicleImage: getVehicleImage(),
                                        vehicleTitle: type.rawValue.capitalized,
                                        vehicleStateTitle: state.rawValue.capitalized,
@@ -62,9 +63,9 @@ extension CabModel {
     private func getColorForState() -> UIColor {
         switch state {
         case .active:
-            return UIColor(red: 34/255.0, green: 139/255.0, blue: 34/255.0, alpha: 1.0)
+            return CommonConstants.activeGreenColor
         case .inactive:
-            return UIColor(red: 226/255.0, green: 62/255.0, blue: 42/255.0, alpha: 1.0)
+            return CommonConstants.inactiveRedColor
 
         }
     }

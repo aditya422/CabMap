@@ -27,7 +27,7 @@ extension URLSession: URLSessionCovenant {}
 
 class APIClient: APIClientCovenant {
     private let constants = Constants()
-    let urlSession: URLSessionCovenant
+    private let urlSession: URLSessionCovenant
 
     init(urlSessionConfiguration: URLSessionConfiguration, completionHandlerQueue: OperationQueue) {
         urlSession = URLSession(configuration: urlSessionConfiguration, delegate: nil, delegateQueue: completionHandlerQueue)
@@ -63,6 +63,7 @@ class APIClient: APIClientCovenant {
     }
 }
 
+// MARK: - Constants
 private extension APIClient {
     struct Constants {
         let statusCodeForSuccess = 200

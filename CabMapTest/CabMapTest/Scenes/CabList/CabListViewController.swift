@@ -8,20 +8,19 @@ protocol CabListView {
 
 class CabListViewController: UIViewController {
     // MARK: - Outlets
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var mapButton: UIBarButtonItem!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var mapButton: UIBarButtonItem!
     
     // MARK: - Variables
-    let configurator = CabListConfigurator()
+    private let configurator = CabListConfigurator()
     // NOTE: - Presenter will never be nil and value for following var will definately be set from configurator.
-    var presenter: CabListPresenterCovenant!
-    let constants = Constants()
+    internal var presenter: CabListPresenterCovenant!
+    private let constants = Constants()
     let loader = UIActivityIndicatorView(style: .large)
 
     // MARK: - Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         configurator.configure(cabListController: self)
         presenter.viewDidLoad()
     }
@@ -59,8 +58,8 @@ extension CabListViewController: CabListView {
             updateView(viewModel: viewModel)
         case .loading:
             showLoader()
-        case .showError:
-            showErrorAlert()
+        case let .showError(error):
+            showErrorAlert(error: error)
         case .clear:
             break
         }
@@ -88,37 +87,51 @@ private extension CabListViewController {
         tableView.reloadData()
     }
     
-    func showErrorAlert() {
-        let alertController = UIAlertController(title: constants.errorAlertTitle,
-                                                message: constants.errorAlertDescription,
+    func showErrorAlert(error: Error) {
+        hideLoader()
+        let title: String
+        let message: String
+        if error is NetworkConnectionError {
+            title = CommonConstants.errorAlertTitleForNoNetwork
+            message = CommonConstants.errorAlertDescriptionForNoNetwork
+        } else {
+            title = CommonConstants.errorAlertTitle
+            message = CommonConstants.errorAlertDescription
+        }
+        let alertController = UIAlertController(title: title,
+                                                message: message,
                                                 preferredStyle: .alert)
         
-        for action in getAlertActions() {
+        for action in getAlertActions(error: error) {
             alertController.addAction(action)
         }
         self.present(alertController, animated: true)
     }
     
-    func getAlertActions() -> [UIAlertAction] {
-        let yesAlertAction = UIAlertAction(title: constants.errorAlertYesActionTitle,
+    func getAlertActions(error: Error) -> [UIAlertAction] {
+        let yesAlertAction = UIAlertAction(title: CommonConstants.errorAlertYesActionTitle,
                                            style: .default) {[weak self] action in
             if let self = self {
                 self.presenter.reloadList()
             }
         }
-        
-        let NoAlertAction = UIAlertAction(title: constants.errorAlertNoActionTitle,
+        let noActionTitle = (error is NetworkConnectionError) ? CommonConstants.errorAlertOkActionTitle
+            : CommonConstants.errorAlertNoActionTitle
+        let NoAlertAction = UIAlertAction(title: noActionTitle,
                                           style: .cancel)
-        return [yesAlertAction, NoAlertAction]
+        if error is NetworkConnectionError {
+            return [NoAlertAction]
+        } else {
+            return [yesAlertAction, NoAlertAction]
+        }
+        
     }
 }
 
-extension CabListViewController {
+// MARK: - Constants
+private extension CabListViewController {
     struct Constants {
         let cellReuseIdentifier = "Cell"
-        let errorAlertTitle = "Something went wrong"
-        let errorAlertDescription = "Do you want to try again?"
-        let errorAlertNoActionTitle = "No"
-        let errorAlertYesActionTitle = "Yes"
+
     }
 }

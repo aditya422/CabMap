@@ -8,12 +8,11 @@ protocol MapView {
 }
 
 class MapViewController: UIViewController {
-    
-    var mapView: GMSMapView?
-    var presenter: MapPresenterCovenant!
-    let constants = Constants()
-    let configurator = MapConfigurator()
-    let loader = UIActivityIndicatorView(style: .large)
+    private var mapView: GMSMapView?
+    internal var presenter: MapPresenterCovenant!
+    private let constants = Constants()
+    private let configurator = MapConfigurator()
+    private let loader = UIActivityIndicatorView(style: .large)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +39,8 @@ extension MapViewController: MapView {
             updateView(viewModel: viewModel)
         case .loading:
             showLoader()
-        case .showError:
-            showErrorAlert()
+        case let .showError(error):
+            showErrorAlert(error: error)
         case .clear:
             break
         }
@@ -102,11 +101,22 @@ private extension MapViewController {
         loader.stopAnimating()
     }
     
-    func showErrorAlert() {
-        let alertController = UIAlertController(title: constants.errorAlertTitle,
-                                                message: constants.errorAlertDescription,
+    func showErrorAlert(error: Error) {
+        hideLoader()
+        let title: String
+        let message: String
+        
+        if error is NetworkConnectionError {
+            title = CommonConstants.errorAlertTitleForNoNetwork
+            message = CommonConstants.errorAlertDescriptionForNoNetwork
+        } else {
+            title = CommonConstants.errorAlertTitle
+            message = constants.errorAlertDescription
+        }
+        let alertController = UIAlertController(title: title,
+                                                message: message,
                                                 preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: constants.errorAlertOkActionTitle,
+        let alertAction = UIAlertAction(title: CommonConstants.errorAlertOkActionTitle,
                                         style: .default)
         alertController.addAction(alertAction)
         self.present(alertController, animated: true)
@@ -123,7 +133,8 @@ private extension MapViewController {
     }
 }
 
-extension MapViewController {
+// MARK: - Constants
+private extension MapViewController {
     struct Constants {
         let hamburgLattitude = 53.5530854
         let hamburgLongitude = 9.757589
@@ -133,8 +144,6 @@ extension MapViewController {
         let southWestBoundLattitude = 53.394655
         let southWestBoundLongitude = 10.099891
         let boundPadding:CGFloat = 0.0
-        let errorAlertTitle = "Something went wrong"
         let errorAlertDescription = "Please try again later"
-        let errorAlertOkActionTitle = "Ok"
     }
 }

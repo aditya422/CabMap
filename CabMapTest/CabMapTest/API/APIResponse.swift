@@ -4,7 +4,7 @@ struct NetworkRequestError: Error {
     let error: Error?
 
     var localizedDescription: String {
-        return error?.localizedDescription ?? Constants().defaultLocalizedDescription
+        error?.localizedDescription ?? Constants().defaultLocalizedDescription
     }
 
     private struct Constants {
@@ -25,7 +25,17 @@ struct ParseError: Error {
     let data: Data?
 
     var localizedDescription: String {
-        return error.localizedDescription
+        error.localizedDescription
+    }
+}
+
+struct NetworkConnectionError: Error {
+    var localizedDescription: String {
+        Constants().defaultLocalizedDescription
+    }
+    
+    private struct Constants {
+        let defaultLocalizedDescription = "You are not connected to internet."
     }
 }
 

@@ -5,11 +5,8 @@ import GoogleMaps
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    let googleMapsAPIKey = "AIzaSyAHd_lx4gdhTWolNEz3nHROVYw8370Y9No"
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GMSServices.provideAPIKey(googleMapsAPIKey)
+        GMSServices.provideAPIKey(CommonConstants.googleMapsAPIKey)
         return true
     }
 

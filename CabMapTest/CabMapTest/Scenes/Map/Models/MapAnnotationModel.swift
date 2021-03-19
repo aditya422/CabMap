@@ -8,7 +8,7 @@ struct MapAnnotationModel {
 }
 
 extension CabModel {
-    func mapToAnnotationModel() -> MapAnnotationModel {
+    func convertToAnnotationModel() -> MapAnnotationModel {
         MapAnnotationModel(lattitude: coordinate.latitude,
                            longitude: coordinate.longitude,
                            image: UIImage(named: "icon_map_taxi") ?? UIImage(),

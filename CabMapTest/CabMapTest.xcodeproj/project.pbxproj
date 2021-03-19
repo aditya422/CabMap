@@ -15,6 +15,8 @@
 		6C2D157B2601D18700AA7BAB /* CabListViewMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D157A2601D18700AA7BAB /* CabListViewMock.swift */; };
 		6C2D15832601D4C900AA7BAB /* GetCabListUsecaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D15822601D4C900AA7BAB /* GetCabListUsecaseMock.swift */; };
 		6C2D158A2601D77400AA7BAB /* CabListRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D15892601D77400AA7BAB /* CabListRouterMock.swift */; };
+		6C911B822604494500DFF764 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C911B812604494500DFF764 /* Reachability.swift */; };
+		6C911B87260456F900DFF764 /* CommonConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C911B86260456F900DFF764 /* CommonConstants.swift */; };
 		6CB8B538260109C0002DB4ED /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB8B537260109C0002DB4ED /* MapPresenter.swift */; };
 		6CB8B53D260109D4002DB4ED /* MapConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB8B53C260109D4002DB4ED /* MapConfigurator.swift */; };
 		6CB8B54226010AE7002DB4ED /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB8B54126010AE7002DB4ED /* MapViewModel.swift */; };
@@ -84,6 +86,8 @@
 		6C2D157A2601D18700AA7BAB /* CabListViewMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabListViewMock.swift; sourceTree = "<group>"; };
 		6C2D15822601D4C900AA7BAB /* GetCabListUsecaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCabListUsecaseMock.swift; sourceTree = "<group>"; };
 		6C2D15892601D77400AA7BAB /* CabListRouterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabListRouterMock.swift; sourceTree = "<group>"; };
+		6C911B812604494500DFF764 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		6C911B86260456F900DFF764 /* CommonConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonConstants.swift; sourceTree = "<group>"; };
 		6CB8B537260109C0002DB4ED /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
 		6CB8B53C260109D4002DB4ED /* MapConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapConfigurator.swift; sourceTree = "<group>"; };
 		6CB8B54126010AE7002DB4ED /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 				ECC4B72125FDDEA300548628 /* APIResponse.swift */,
 				ECC4B73625FDE8BB00548628 /* Result.swift */,
 				ECC4B74B25FDEE6E00548628 /* Request */,
+				6C911B812604494500DFF764 /* Reachability.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -354,6 +359,7 @@
 			children = (
 				3A24BEB1260034100019D5C3 /* Map */,
 				ECC4B76725FE27BA00548628 /* CabList */,
+				6C911B86260456F900DFF764 /* CommonConstants.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -643,9 +649,11 @@
 			files = (
 				ECC4B77225FE2E0900548628 /* CabListViewModel.swift in Sources */,
 				ECC4B6E925FDCFD200548628 /* CabListViewController.swift in Sources */,
+				6C911B87260456F900DFF764 /* CommonConstants.swift in Sources */,
 				ECC4B72825FDE72000548628 /* CabListSource.swift in Sources */,
 				6CB8B538260109C0002DB4ED /* MapPresenter.swift in Sources */,
 				ECC4B6E525FDCFD200548628 /* AppDelegate.swift in Sources */,
+				6C911B822604494500DFF764 /* Reachability.swift in Sources */,
 				ECC4B72F25FDE81C00548628 /* CabModel.swift in Sources */,
 				3A24BEA42600327E0019D5C3 /* CabListRouter.swift in Sources */,
 				ECC4B75525FDF8E000548628 /* CabListParameters.swift in Sources */,

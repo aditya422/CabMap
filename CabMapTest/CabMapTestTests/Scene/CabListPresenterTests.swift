@@ -66,7 +66,7 @@ class CabListPresenterTests: XCTestCase {
     func testViewModelForIndexpath() {
         // Given
         presenter.cabList = getCabListForTest()
-        let cellModel = getCabListForTest()[1].mapToCellModel()
+        let cellModel = getCabListForTest()[1].convertToCellModel()
         
         // When
         let presenterCellModel = presenter.viewModelFor(indexPath: IndexPath(row: 1, section: 0))

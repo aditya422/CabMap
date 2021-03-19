@@ -10,6 +10,7 @@ enum CabListViewState {
 protocol CabListPresenterCovenant {
     var view: CabListView? { get set }
     var router: CabListRouterCovenant? { get set }
+
     func viewDidLoad()
     func viewWillAppear()
     func numberOfRows(in section: Int) -> Int
@@ -19,13 +20,13 @@ protocol CabListPresenterCovenant {
 }
 
 class CabListPresenter: CabListPresenterCovenant {
-    var view: CabListView?
-    var router: CabListRouterCovenant?
-    var getCabListUsecase: GetCabListUsecaseCovenant
-    var cabList = [CabModel]()
-    let constants = Constants()
+    internal var view: CabListView?
+    internal var router: CabListRouterCovenant?
+    private var getCabListUsecase: GetCabListUsecaseCovenant
+    internal var cabList = [CabModel]()
+    private let constants = Constants()
 
-    var viewState: CabListViewState = .clear {
+    private var viewState: CabListViewState = .clear {
         didSet {
             view?.viewStateChanged(state: viewState)
         }
@@ -51,7 +52,7 @@ class CabListPresenter: CabListPresenterCovenant {
     }
 
     func viewModelFor(indexPath: IndexPath) -> CabListTableViewCell.ViewModel {
-        cabList[indexPath.row].mapToCellModel()
+        cabList[indexPath.row].convertToCellModel()
     }
 
     func navigateToMapView() {
@@ -73,6 +74,9 @@ private extension CabListPresenter {
 
     func loadCabList() {
         viewState = .loading
+        if !Reachability.isConnectedToNetwork() {
+            viewState = .showError(error: NetworkConnectionError())
+        }
         getCabListUsecase.getCabList(parameters: getCabListRequestPrameters()) {[weak self] result in
             guard let self = self else {
                 return
@@ -93,7 +97,8 @@ private extension CabListPresenter {
     }
 }
 
-extension CabListPresenter {
+// MARK: - Constants
+private extension CabListPresenter {
     struct Constants {
         let cabListHeaderTile = "Cab List"
         let cabListMapButonTitle = "Map"

@@ -5,8 +5,8 @@ protocol CabListRouterCovenant {
 }
 
 class CabListRouter: CabListRouterCovenant {
-    var cabListController: CabListViewController?
-    let constants = Constants()
+    internal var cabListController: CabListViewController?
+    private let constants = Constants()
 
     init(cabListController: CabListViewController) {
         self.cabListController = cabListController
@@ -19,7 +19,8 @@ class CabListRouter: CabListRouterCovenant {
     }
 }
 
-extension CabListRouter {
+// MARK: - Constants
+private extension CabListRouter {
     struct Constants {
         let storyboardName = "Main"
         let mapViewControllerIdentifier = "MapViewController"
